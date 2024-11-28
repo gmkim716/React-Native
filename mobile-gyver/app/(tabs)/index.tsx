@@ -64,6 +64,7 @@ export default function Index() {
   };
 
   const onSaveImageAsync = async () => {
+    // 웹인 경우에는 dom-to-image를 사용하여 이미지를 저장한다
     if (Platform.OS !== "web") {
       try {
         const localUri = await captureRef(imageRef, {
@@ -79,6 +80,7 @@ export default function Index() {
         console.log(e);
       }
     } else {
+      // 웹이 아닌 경우에는 react-native-view-shot을 사용하여 이미지를 저장한다
       try {
         const dataUrl = await domtoimage.toJpeg(imageRef.current, {
           quality: 0.95,
@@ -102,7 +104,7 @@ export default function Index() {
       <View style={styles.imageContainer}>
         {/*
          * collapsable: false로 설정하여 이미지가 제대로 표시되도록 한다, true로 설정하면 이미지가 표시되지 않을 수 있다
-         * View 컴포넌가 background image와 emoji sticker만을 캡처하도록 설정한다
+         * View 컴포넌트가 background image와 emoji sticker만을 캡처하도록 설정한다
          */}
         <View ref={imageRef} collapsable={false}>
           <ImageViewer
