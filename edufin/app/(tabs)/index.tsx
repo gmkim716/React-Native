@@ -1,8 +1,9 @@
-import { Pressable, Text, View} from 'react-native';
+import {Animated, Pressable, Text, View} from 'react-native';
 import { router} from 'expo-router';
 import React from "react";
-import TopSection from "@/features/home/sections/TopSection";
+import HeadSection from "@/features/home/sections/HeadSection";
 import InvestListSection from "@/features/home/sections/InvestListSection";
+import ScrollView = Animated.ScrollView;
 
 export default function Index() {
   
@@ -11,9 +12,9 @@ export default function Index() {
   }
   
   return (
-    <View className="flex-1 bg-[#25292e] items-center">
-      <TopSection />
+    <ScrollView className="flex-1 items-center">
+      <HeadSection />
       <InvestListSection />
-    </View>
+    </ScrollView>
   );
 }

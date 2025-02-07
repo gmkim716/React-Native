@@ -1,11 +1,23 @@
-import {Text, View} from "react-native";
+import {StyleSheet, Text, View} from "react-native";
 
 export default function InvestScreen(){
   return (
-    <View className="flex-1 bg-[#25292e] justify-center items-center">
-      <Text className="text-white">
+    <View style={styles.container}>
+      <Text style={styles.text}>
         Invest Screen
       </Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#25292e',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text: {
+    color: 'white'
+  }
+});
