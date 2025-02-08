@@ -1,18 +1,17 @@
-import {Image, Pressable, StyleSheet, Text, View} from "react-native";
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import {Pressable, StyleSheet, Text, View, ViewStyle, TextStyle} from "react-native";
 import SectionTitle from "@/shared/ui/SectionTitle";
-import {useComponentState} from "nativewind/dist/styled/use-component-state";
 import React, {useState} from "react";
-import Temp예적금화면 from "@/features/home/tabs/Temp예적금화면";
+import TempSaving from "@/features/home/tabs/TempSaving";
 
+type TabType = '예·적금' | '주식' | '가상자산';
 
 type TabContentProps = {
-  activeTab: string;
+  activeTab: TabType;
 }
 
 const TabContent = ({activeTab}: TabContentProps)=> {
   switch(activeTab) {
-    case '예·적금': return <Temp예적금화면 />;
+    case '예·적금': return <TempSaving />;
     case '주식': return <Text>주식 상품</Text>;
     case '가상자산': return <Text>가상자산 상품</Text>;
     default: return null;
@@ -20,13 +19,9 @@ const TabContent = ({activeTab}: TabContentProps)=> {
 }
 
 export default function ProductSection() {
-  const [activeTab, setActiveTab] = useState("예·적금")
+  const [activeTab, setActiveTab] = useState<TabType>('예·적금');
+  const tabs: TabType[] = ['예·적금', '주식', '가상자산'];
 
-  const tabs = ['예·적금', '주식', '가상자산'];
-  
-
-  // 탭 추가 작업 진행 중이었음
-  
   return (
     <View style={styles.container}>
       <SectionTitle>관심상품</SectionTitle>
@@ -37,7 +32,7 @@ export default function ProductSection() {
             style={[styles.tab, activeTab === tab && styles.activeTab]}
             onPress={() => setActiveTab(tab)}
           >
-            <Text>
+            <Text style={[styles.tabText, activeTab === tab && styles.activeTabText]}>
               {tab}
             </Text>
           </Pressable>
@@ -50,7 +45,17 @@ export default function ProductSection() {
   );
 }
 
-const styles = StyleSheet.create({
+interface Styles {
+  container: ViewStyle;
+  tabBar: ViewStyle;
+  tab: ViewStyle;
+  activeTab: ViewStyle;
+  tabText: TextStyle;
+  activeTabText: TextStyle;
+  content: ViewStyle;
+}
+
+const styles = StyleSheet.create<Styles>({
   container: {
     flex: 1
   },
