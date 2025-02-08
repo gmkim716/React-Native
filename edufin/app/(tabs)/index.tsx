@@ -1,10 +1,10 @@
-import {Animated, Pressable, StyleSheet, Text, View} from 'react-native';
-import { router} from 'expo-router';
+import {Animated, StyleSheet} from 'react-native';
+import {router} from 'expo-router';
 import React from "react";
 import HeadSection from "@/features/home/sections/HeadSection";
 import InvestSection from "@/features/home/sections/InvestSection";
-import ScrollView = Animated.ScrollView;
 import ProductSection from "@/features/home/sections/ProductSection";
+import ScrollView = Animated.ScrollView;
 
 export default function Index() {
   
