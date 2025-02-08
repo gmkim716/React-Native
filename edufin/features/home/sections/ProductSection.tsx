@@ -12,8 +12,8 @@ type TabContentProps = {
 const TabContent = ({activeTab}: TabContentProps)=> {
   switch(activeTab) {
     case '예·적금': return <TempSaving />;
-    case '주식': return <Text>주식 상품</Text>;
-    case '가상자산': return <Text>가상자산 상품</Text>;
+    case '주식': return <TempSaving />;
+    case '가상자산': return <TempSaving />;
     default: return null;
   }
 }
@@ -45,17 +45,7 @@ export default function ProductSection() {
   );
 }
 
-interface Styles {
-  container: ViewStyle;
-  tabBar: ViewStyle;
-  tab: ViewStyle;
-  activeTab: ViewStyle;
-  tabText: TextStyle;
-  activeTabText: TextStyle;
-  content: ViewStyle;
-}
-
-const styles = StyleSheet.create<Styles>({
+const styles = StyleSheet.create({
   container: {
     flex: 1
   },

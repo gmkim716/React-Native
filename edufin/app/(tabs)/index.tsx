@@ -1,4 +1,4 @@
-import {Animated, Pressable, Text, View} from 'react-native';
+import {Animated, Pressable, StyleSheet, Text, View} from 'react-native';
 import { router} from 'expo-router';
 import React from "react";
 import HeadSection from "@/features/home/sections/HeadSection";
@@ -13,11 +13,16 @@ export default function Index() {
   }
   
   return (
-    <ScrollView className="flex-1 items-center">
+    <ScrollView style={style.container}>
       <HeadSection />
       <InvestSection />
       <ProductSection />
-      <InvestSection />
     </ScrollView>
   );
 }
+
+const style = StyleSheet.create({
+  container: {
+    display: "flex",
+  }
+})
