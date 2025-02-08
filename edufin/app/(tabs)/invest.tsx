@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from "react-native";
 import HomeStockSection from "@/features/invest/sections/home/HomeStockSection";
 import HomeCoinSection from "@/features/invest/sections/home/HomeCoinSection";
-import HomeInvestSummary from "@/features/invest/ui/home/HomeInvestSummary";
+import HomeDepositSection from "@/features/invest/sections/home/HomeDepositSection";
 
 export default function InvestScreen(){
   return (
@@ -9,7 +9,7 @@ export default function InvestScreen(){
       <Text style={styles.text}>
         Invest Screen
       </Text>
-      <HomeInvestSummary secTitle="예적금" totalVal={12345} totalValDiff={1332445} totalValDiffRate={12.34}
+      <HomeDepositSection />
       <HomeStockSection />
       <HomeCoinSection />
     </View>
