@@ -5,7 +5,7 @@ import {Image, Platform, Text, View} from 'react-native';
 import { HapticTab } from '@/legacy/HapticTab';
 import { IconSymbol } from '@/shared/ui/IconSymbol';
 import TabBarBackground from '@/shared/ui/TabBarBackground';
-import { Colors } from '@/shared/constants/Colors';
+import { Colors } from '@/lib/constants/Colors';
 import { useColorScheme } from '@/shared/hooks/useColorScheme';
 import {AntDesign, FontAwesome6} from "@expo/vector-icons";
 
